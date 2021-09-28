@@ -49,68 +49,70 @@
         </div>
     </div>
 
-    <div class="table-responsive col-lg-12">
-        <table class="table table-dark table-striped">
-            <thead>
-                <th >ID</th>
-                <th>Usuario</th>
-                <th>Contraseña</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Telefono</th>
-                <th>Correo</th>
-                <th>Estado</th>
-                <th></th>
-            </thead>
-            <tbody>
-                <?php 
-                $query = "SELECT * FROM usuario";
-                $result = mysqli_query($conexion, $query);
-                while($row = mysqli_fetch_array($result))
-                { 
-                    $estado = $row['estado'];
-                    if($estado != NULL) 
-                    {?>
-                        <tr>
-                            <td><?php echo $row['idUsuario'] ?></td>
-                            <td><?php echo $row['nombreUsuario'] ?></td>
-                            <td><?php echo $row['password'] ?></td>
-                            <td><?php echo $row['NombrePerfil'] ?></td>
-                            <td><?php echo $row['Apellidos'] ?></td>
-                            <td><?php echo $row['Telefono'] ?></td>
-                            <td><?php echo $row['Correo'] ?></td>
-                            <td>
-                            <?php
-                                switch($row['estado'] ) {
-                                    case 1:
-                                        echo "Activo";
-                                        break;
-                                    case 2:
-                                        echo "En Progreso";
-                                        break;
-                                    case 3:
-                                        echo "Inactivo";
-                                        break;
-                                }
-                                ?>
-                            </td>
-                                <td>
-                                    <a href="../Model/Perfil/delete.php?id=<?php echo $row['idRol'] ?>" class="btn btn-warning btn-sm"> Editar 
-                                        <i class="zmdi zmdi-edit "></i>
-                                        </a>
-                                    <a href="../Model/Perfil/db.php?id=<?php echo $row['idRol'] ?>" class="btn btn-danger btn-sm"> Eliminar
-                                        <i class="zmdi zmdi-delete" ></i>
-                                        </a>
-                                </td>
-                            </tr>
+    <div class="py-3 p-3">
+        <div class="table-responsive col-lg-10">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <th >ID</th>
+                    <th>Usuario</th>
+                    <th>Contraseña</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Estado</th>
+                    <th></th>
+                </thead>
+                <tbody>
                     <?php 
-                        }
+                    $query = "SELECT * FROM usuario";
+                    $result = mysqli_query($conexion, $query);
+                    while($row = mysqli_fetch_array($result))
+                    { 
+                        $estado = $row['estado'];
+                        if($estado != NULL) 
+                        {?>
+                            <tr>
+                                <td><?php echo $row['idUsuario'] ?></td>
+                                <td><?php echo $row['nombreUsuario'] ?></td>
+                                <td><?php echo $row['password'] ?></td>
+                                <td><?php echo $row['NombrePerfil'] ?></td>
+                                <td><?php echo $row['Apellidos'] ?></td>
+                                <td><?php echo $row['Telefono'] ?></td>
+                                <td><?php echo $row['Correo'] ?></td>
+                                <td>
+                                <?php
+                                    switch($row['estado'] ) {
+                                        case 1:
+                                            echo "Activo";
+                                            break;
+                                        case 2:
+                                            echo "En Progreso";
+                                            break;
+                                        case 3:
+                                            echo "Inactivo";
+                                            break;
+                                    }
+                                    ?>
+                                </td>
+                                    <td>
+                                        <a href="../Model/Perfil/edit.php?id=<?php echo $row['idUsuario'] ?>" class="btn btn-warning btn-lg"> Editar</a>
+                                        <?php if($row['estado'] == 1){ ?>
+                                            <a href="../Model/Perfil/delete.php?id=<?php echo $row['idUsuario'] ?>"  class="btn btn-danger btn-lg"> Desactivar</a>
+                                        <?php }else if($row['estado']==3){ ?>
+                                            <a href="../Model/Perfil/delete.php?id=<?php echo $row['idUsuario'] ?>" class="btn btn-success btn-lg"> Activar</a>
+                                        <?php }?>
+                                    </td>
+                                </tr>
+                        <?php 
+                            }
 
-                } ?>
-            </tbody>
-        </table>
+                    } ?>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
 </div>
-
 <?php include("../Includes/fooder.php") ?>

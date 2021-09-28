@@ -4,5 +4,5 @@
         'root',
         '',
         'examen'
-    ) or die(mysqli_error($conn));
+    ) or die(mysqli_error($conexion));
 ?>
