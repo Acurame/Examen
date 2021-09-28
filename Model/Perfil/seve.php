@@ -10,15 +10,13 @@ if(isset($_POST['save'])){
     $telephone = $_POST['telephone'];
     $mail = $_POST['mail'];
 
-    if($state != null){
-    $consult = "INSERT INTO usuario(nombreUsuario, password, imagenUsuario, NombrePerfil, Apellidos, Telefono, Correo, estado) VALUES ('$user','$password','$name','$lastname','$telephone','$mail','2')";
+   
+    $consult = "INSERT INTO usuario(nombreUsuario, password, NombrePerfil, Apellidos, Telefono, Correo, estado) VALUES ('$user','$password','$name','$lastname','$telephone','$mail','2')";
     $error = mysqli_query($conexion,$consult);
 
         if(!$error){
             die("Error");
         }
-
-    }
-    echo $consult;
 }
+header("Location: ../../views/Perfil.php")
 ?>

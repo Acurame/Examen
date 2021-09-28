@@ -1,6 +1,6 @@
 <?php
     $conexion = mysqli_connect(
-        'localhost:3306',
+        'localhost',
         'root',
         '',
         'examen'

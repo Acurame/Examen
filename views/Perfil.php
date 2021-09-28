@@ -1,5 +1,5 @@
 <?php include("../Includes/header.php") ?>
-
+<?php include("../Model/db.php"); ?>
 <div class="home_content">
     <div class="create">
         <!-- Button trigger modal -->
@@ -41,7 +41,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Canselar</button>
-                            <button type="submit" class="btn btn-primary">Crear</button>
+                            <button type="submit" name="save" class="btn btn-primary">Crear</button>
                         </div>
                     </form>
                 </div>
@@ -59,10 +59,54 @@
                 <th>Apellidos</th>
                 <th>Telefono</th>
                 <th>Correo</th>
+                <th>Estado</th>
                 <th></th>
             </thead>
             <tbody>
-                
+                <?php 
+                $query = "SELECT * FROM usuario";
+                $result = mysqli_query($conexion, $query);
+                while($row = mysqli_fetch_array($result))
+                { 
+                    $estado = $row['estado'];
+                    if($estado != NULL) 
+                    {?>
+                        <tr>
+                            <td><?php echo $row['idUsuario'] ?></td>
+                            <td><?php echo $row['nombreUsuario'] ?></td>
+                            <td><?php echo $row['password'] ?></td>
+                            <td><?php echo $row['NombrePerfil'] ?></td>
+                            <td><?php echo $row['Apellidos'] ?></td>
+                            <td><?php echo $row['Telefono'] ?></td>
+                            <td><?php echo $row['Correo'] ?></td>
+                            <td>
+                            <?php
+                                switch($row['estado'] ) {
+                                    case 1:
+                                        echo "Activo";
+                                        break;
+                                    case 2:
+                                        echo "En Progreso";
+                                        break;
+                                    case 3:
+                                        echo "Inactivo";
+                                        break;
+                                }
+                                ?>
+                            </td>
+                                <td>
+                                    <a href="../Model/Perfil/delete.php?id=<?php echo $row['idRol'] ?>" class="btn btn-warning btn-sm"> Editar 
+                                        <i class="zmdi zmdi-edit "></i>
+                                        </a>
+                                    <a href="../Model/Perfil/db.php?id=<?php echo $row['idRol'] ?>" class="btn btn-danger btn-sm"> Eliminar
+                                        <i class="zmdi zmdi-delete" ></i>
+                                        </a>
+                                </td>
+                            </tr>
+                    <?php 
+                        }
+
+                } ?>
             </tbody>
         </table>
     </div>
