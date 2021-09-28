@@ -15,7 +15,7 @@
                         <h5 class="modal-title">Nuevo Perfil</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="" method="post">
+                    <form action="../Model/Perfil/seve.php" method="post">
                         <div class="modal-body">
                                 <div class="form-group p-3">
                                     <input type="text" name="user" class="form-control" placeholder="Usuario" autofocus></input>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Canselar</button>
-                            <button type="sumit" class="btn btn-primary">Crear</button>
+                            <button type="submit" class="btn btn-primary">Crear</button>
                         </div>
                     </form>
                 </div>
@@ -52,13 +52,14 @@
     <div class="table-responsive col-lg-12">
         <table class="table table-dark table-striped">
             <thead>
-                <th>ID</th>
+                <th >ID</th>
                 <th>Usuario</th>
                 <th>Contraseña</th>
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Telefono</th>
                 <th>Correo</th>
+                <th></th>
             </thead>
             <tbody>
                 
