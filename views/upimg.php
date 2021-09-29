@@ -6,7 +6,7 @@
                     <div class="card card-body">
                         <form action="/Model/upImg/datosImg.php" method="post" enctype="multipart/form-data">
                                 <div class="form-group p-3">
-                                    <input type="text" name="user" class="form-control" placeholder="Nombre" autofocus></input>
+                                    <input type="text" name="name" class="form-control" placeholder="Nombre" autofocus></input>
                                 </div>
                                 <div class="form-group p-3">
                                     <input type="file" name="img" class="form-control" autofocus ></input>

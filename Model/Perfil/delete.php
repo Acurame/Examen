@@ -14,15 +14,13 @@
                 
                 header('Location: ../../views/Perfil.php');
             }
-        }else if($state == 3){
+        }else if($state == 2 || $state == 3){
                 $consulta = "UPDATE usuario set estado = '1' WHERE idUsuario = $id";
                 $error = mysqli_query($conexion,$consulta);
                 
                 header('Location: ../../views/Perfil.php');
         }
-         
-    }
-    
 
+    }
     
 ?>

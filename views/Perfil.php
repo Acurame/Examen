@@ -99,9 +99,13 @@
                                         <a href="../Model/Perfil/edit.php?id=<?php echo $row['idUsuario'] ?>" class="btn btn-warning btn-lg"> Editar</a>
                                         <?php if($row['estado'] == 1){ ?>
                                             <a href="../Model/Perfil/delete.php?id=<?php echo $row['idUsuario'] ?>"  class="btn btn-danger btn-lg"> Desactivar</a>
-                                        <?php }else if($row['estado']==3){ ?>
+                                        <?php }else if($row['estado']==2){ ?>
                                             <a href="../Model/Perfil/delete.php?id=<?php echo $row['idUsuario'] ?>" class="btn btn-success btn-lg"> Activar</a>
-                                        <?php }?>
+                                        <?php }else if($row['estado']==3){?>
+                                            <a href="../Model/Perfil/delete.php?id=<?php echo $row['idUsuario'] ?>" class="btn btn-success btn-lg"> Activar</a>
+                                        
+                                        <?php } ?>
+                                        
                                     </td>
                                 </tr>
                         <?php 

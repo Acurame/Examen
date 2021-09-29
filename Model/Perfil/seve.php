@@ -9,7 +9,8 @@ if(isset($_POST['save'])){
     $lastname = $_POST['lastname'];
     $telephone = $_POST['telephone'];
     $mail = $_POST['mail'];
-
+    $direcion = "../../img/";
+    mkdir($direcion . $user);
    
     $consult = "INSERT INTO usuario(nombreUsuario, password, NombrePerfil, Apellidos, Telefono, Correo, estado) VALUES ('$user','$password','$name','$lastname','$telephone','$mail','2')";
     $error = mysqli_query($conexion,$consult);
@@ -17,6 +18,7 @@ if(isset($_POST['save'])){
         if(!$error){
             die("Error");
         }
+    
 }
 header("Location: ../../views/Perfil.php")
 ?>
