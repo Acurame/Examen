@@ -1,15 +1,14 @@
 <?php
     $direciones = "../../img/";
-    $ejemplo = "CuervoLunar" . "/";
-
-    $archivo =$direciones . $ejemplo . basename($_FILES["img"]["name"]);
-
+    session_start();
+    $nameimg = basename($_FILES["img"]["name"]);
+    $id =$_SESSION['id'];
+    $archivo = $direciones . $_SESSION["usuario"] . "/" . $nameimg;
+    include("../db.php");
+     
+    $consult = "INSERT INTO imagenes(idUsuario,nombreImagen) VALUES ('$id','$nameimg')";
+    $error = mysqli_query($conexion,$consult);
     move_uploaded_file($_FILES["img"]["tmp_name"], $archivo);
-    if(isset($_POST['name'])){
-        $name =  $_POST['name'];
-        if($name != null){
-            rename($archivo,$name);
-        }
-    }
-    echo $archivo;
+    
+    header("Location: ../../views/upimg.php");
 ?>

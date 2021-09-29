@@ -17,7 +17,7 @@
             </div>
             <ul class="nav_list">
                 <li>
-                    <a href="#">
+                    <a href="/views/Gallery.php">
                         <i class="bi bi-camera-fill"></i>
                         <span class="links_name">Galeria</span>
                     </a>
@@ -40,7 +40,8 @@
                     <div class="profile_details">
                         <img src="/img/Admin.png" alt="">
                         <div class="name_job">
-                            <div class="name">CuervoLunar</div>
+                            <?php session_start(); ?>
+                            <div class="name"><?php echo $_SESSION["usuario"] ?></div>
                             <div class="job">Administrador</div>
                         </div>
                     </div>
