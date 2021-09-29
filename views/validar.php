@@ -16,8 +16,14 @@ $consulta="SELECT*FROM usuario WHERE nombreUsuario = '$usuario' and password = '
 $resultado=mysqli_query($conexion,$consulta);
 
 $filas=mysqli_num_rows($resultado);
+if($filas == 1){
+  $row = mysqli_fetch_array($resultado);
+  $_SESSION['id']= $row['idUsuario'];
+  
+}
 
-if($filas){
+
+if($filas == 1){
   
     header("location:Login.php");
 
