@@ -9,7 +9,7 @@ if(isset($_POST['save'])){
     $lastname = $_POST['lastname'];
     $telephone = $_POST['telephone'];
     $email = $_POST['mail'];
-    $direcion = "../../img/";
+    $direcion = "../img/";
     mkdir($direcion . $user);
    
     $consult = "INSERT INTO usuario(nombreUsuario, password, NombrePerfil, Apellidos, Telefono, Correo, estado) VALUES ('$user','$password','$name','$lastname','$telephone','$email','2')";
