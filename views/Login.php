@@ -22,6 +22,8 @@
                 <form action="">
                     <div class="form-group text-center pt-3">
                         <h1 class="text-light">BIENVENIDO A Galeria Lunar</h1>
+                        <h1 class="text-light">Miguel Terraza</h1>
+                        <h1 class="text-light">Jhony Hernandez</h1>
                     </div>   
                 </form>
             </div>
