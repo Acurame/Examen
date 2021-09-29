@@ -24,7 +24,7 @@ if($filas){
 }else{
     ?>
     <?php include("../index.php"); ?>
-  <h1 class="bad">ERROR DE AUTENTIFICACION</h1>
+    <script src="/sweetAlert.js"></script>
   <?php
 }
 mysqli_free_result($resultado);
