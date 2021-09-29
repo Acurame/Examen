@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/node_modules/sweetalert2/dist/sweetalert2.css">
     <title>Document</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/views/upimg.php">
                         <i class="bi bi-arrow-bar-up"></i>
                         <span class="links_name">Subir Imagen</span>
                     </a>

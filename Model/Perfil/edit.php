@@ -13,6 +13,22 @@ if(isset($_GET['id'])){
         $mail = $row['Correo'];
     }
 }
+include("../db.php");
+
+if(isset($_POST['save'])){
+    $user = $_POST['user'];
+    $password = $_POST['passwd'];
+    $name = $_POST['name'];
+    $lastname = $_POST['lastname'];
+    $telephone = $_POST['telephone'];
+    $mail = $_POST['mail'];
+
+   
+    $consult = "UPDATE usuario set  nombreUsuario = '$user', password = '$password', NombrePerfil = '$name', Apellidos = '$lastname', Telefono = '$telephone', Correo = '$mail' WHERE idUsuario = $id";
+    $error = mysqli_query($conexion,$consult);
+    header("Location: ../../views/Perfil.php");
+}
+
 ?>
 
 <?php include("../../Includes/header.php") ?>
@@ -21,31 +37,31 @@ if(isset($_GET['id'])){
             <div class="row">
                 <div class="col-md-5 mx-auto">
                     <div class="card card-body">
-                        <form action="" method="post">
+                        <form action="edit.php?id=<?php echo $_GET['id'];?>" method="post">
                                 <div class="form-group p-3">
-                                    <input type="text" name="user" class="form-control" placeholder="Usuario" autofocus></input>
+                                    <input type="text" name="user" class="form-control" placeholder="Usuario" autofocus value="<?php echo $user ?>"></input>
                                 </div>
                                 <div class="form-group p-3">
-                                    <input type="password" name="passwd" class="form-control" placeholder="Pasword" autofocus></input>
+                                    <input type="password" name="passwd" class="form-control" placeholder="Pasword" autofocus value="<?php echo $password ?>"></input>
                                 </div>
                                 <div class="form-group p-3">
-                                    <input type="password" name="passwd2" class="form-control" placeholder="Pasword" autofocus></input>
+                                    <input type="password" name="passwd2" class="form-control" placeholder="Pasword" autofocus value="<?php echo $password ?>"></input>
                                 </div>
                                 <div class="form-group p-3">
-                                    <input type="text" name="name" class="form-control" placeholder="Nombre" autofocus></input>
+                                    <input type="text" name="name" class="form-control" placeholder="Nombre" autofocus value="<?php echo $name ?>"></input>
+                                </div> 
+                                <div class="form-group p-3">
+                                    <input type="text" name="lastname" class="form-control" placeholder="apellidos" autofocus value="<?php echo $lastname ?>"></input>
                                 </div>
                                 <div class="form-group p-3">
-                                    <input type="text" name="lastname" class="form-control" placeholder="apellidos" autofocus></input>
+                                    <input type="text" name="telephone" class="form-control" placeholder="Telefono" autofocus value="<?php echo $telephone ?>"></input>
                                 </div>
                                 <div class="form-group p-3">
-                                    <input type="text" name="telephone" class="form-control" placeholder="Telefono" autofocus></input>
-                                </div>
-                                <div class="form-group p-3">
-                                    <input type="text" name="mail" class="form-control" placeholder="Correo" autofocus></input>
+                                    <input type="text" name="mail" class="form-control" placeholder="Correo" autofocus value="<?php echo $mail ?>"></input>
                                 </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Canselar</button>
-                            <button type="submit" name="save" class="btn btn-primary">Crear</button>
+                            <button type="submit" name="save" class="btn btn-success">Editar</button>
+                            <a href="/views/Perfil.php" class="btn btn-danger"> Cancelar </a>
                         </div>
                         </form>
                     </div>
