@@ -57,6 +57,7 @@ catch (Exception $e){
 }
 
 
-header("location:Login.php");
+header("location:../index.php");
+// include("../index.php"); 
 
 ?>
